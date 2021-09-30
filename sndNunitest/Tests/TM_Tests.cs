@@ -12,20 +12,8 @@ namespace sndNunitest
     {
 
         
-        [SetUp]
-        public void loginActions()
-        {
-            driver = new ChromeDriver();
-
-            //create login page
-            LoginPage lpobj = new LoginPage();
-            lpobj.gotoLoginPage(driver);
-            //create home page
-            HomePage Hpobj = new HomePage();
-            Hpobj.gotoHomePage(driver);
-
-        }
-        [Test]
+       
+        [Test, Order(1)]
         public void createTMTest()
         {
             //tm page
@@ -33,7 +21,7 @@ namespace sndNunitest
             tmobj.createTM(driver);
 
         }
-        [Test]
+        [Test, Order(2)]
         public void editTMTest()
         {
             //tm page
@@ -43,7 +31,7 @@ namespace sndNunitest
 
         }
 
-        [Test]
+        [Test, Order(3)]
         public void deleteTMTest()
         {
             //tm page
@@ -51,10 +39,6 @@ namespace sndNunitest
             tmobj.deleteTM(driver);
 
         }
-        [TearDown]
-        public void closeTestRun()
-        {
-
-        }
+        
     }
 }

@@ -44,7 +44,17 @@ namespace sndNunitest.Pages
 			IWebElement chckelement = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
 			Assert.That(chckelement.Text == "sep2021", "Actual code expexted code diff test failed");
 			Console.WriteLine(chckelement.Text);
-
+			
+			//IWebElement chckcode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
+			IWebElement chckTypecode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[2]"));
+			IWebElement chckDesc = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[3]"));
+			IWebElement chckPrice = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[4]"));
+			Assert.That(chckelement.Text == "sep2021", "Actual code and expected code do not match");
+			Assert.That(chckTypecode.Text == "T", "Actual code and expected code do not match");
+			Assert.That(chckDesc.Text == "sept2021", "Actual Desc and expected code do not match");
+			Assert.That(chckPrice.Text == "$25.00", "Actual Price and expected code do not match");
+			
+			
 			if (chckelement.Text == "sep2021")
 			{
 				Console.WriteLine("data saved sucessfully test passed");
@@ -60,25 +70,49 @@ namespace sndNunitest.Pages
 			Thread.Sleep(2000);
 			IWebElement lastpagebutton = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]/span"));
 			lastpagebutton.Click();
-			IWebElement editbutton = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[5]/a[1]"));
-			editbutton.Click();
-			//edit description
-			
-			IWebElement nDs = driver.FindElement(By.Id("Description"));
-			nDs.Clear();
-			nDs.SendKeys("1newsept2023");
-			//edit price
-			driver.FindElement(By.XPath("//*[@id='TimeMaterialEditForm']/div/div[4]/div/span[1]/span/input[1]")).Click();
-			//*[@id="TimeMaterialEditForm"]/div/div[4]/div/span[1]/span/input[1]
-			//*[@id="TimeMaterialEditForm"]/div/div[4]/div/span[1]/span/input[1]
-			IWebElement nPs = driver.FindElement(By.XPath("//*[@id='Price']"));
-			nPs.Clear();
-			driver.FindElement(By.XPath("//*[@id='TimeMaterialEditForm']/div/div[4]/div/span[1]/span/input[1]")).Click();
+			IWebElement chckcode1 = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
+			if (chckcode1.Text == "sep2021")
+			{
+				IWebElement editbutton = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[5]/a[1]"));
+				editbutton.Click();
+				//edit description
 
-			nPs.SendKeys("54");
-			//save
-			driver.FindElement(By.Id("SaveButton")).Click();
-			Console.WriteLine("data updated  sucessfully test passed");
+				IWebElement nDs = driver.FindElement(By.Id("Description"));
+				nDs.Clear();
+				nDs.SendKeys("1newsept2023");
+				//edit price
+				driver.FindElement(By.XPath("//*[@id='TimeMaterialEditForm']/div/div[4]/div/span[1]/span/input[1]")).Click();
+				//*[@id="TimeMaterialEditForm"]/div/div[4]/div/span[1]/span/input[1]
+				//*[@id="TimeMaterialEditForm"]/div/div[4]/div/span[1]/span/input[1]
+				IWebElement nPs = driver.FindElement(By.XPath("//*[@id='Price']"));
+				nPs.Clear();
+				driver.FindElement(By.XPath("//*[@id='TimeMaterialEditForm']/div/div[4]/div/span[1]/span/input[1]")).Click();
+
+				nPs.SendKeys("54");
+				//save
+				driver.FindElement(By.Id("SaveButton")).Click();
+				Console.WriteLine("data updated  sucessfully test passed");
+
+				Thread.Sleep(2000);
+				IWebElement lastpagebutton1 = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]/span"));
+				lastpagebutton1.Click();
+
+				IWebElement chckcode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
+				IWebElement chckTypecode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[2]"));
+				IWebElement chckDesc = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[3]"));
+				IWebElement chckPrice = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[4]"));
+				Assert.That(chckcode.Text == "sep2021", "Actual code and expected code do not match");
+				Assert.That(chckTypecode.Text == "T", "Actual code and expected code do not match");
+				Assert.That(chckDesc.Text == "1newsept2023", "Actual Desc and expected code do not match");
+				Assert.That(chckPrice.Text == "$54.00", "Actual Price and expected code do not match");
+			}
+
+			else
+			{
+				Assert.Fail("cannot find edited data, delete test case failed");
+
+			}
+
 
 		}
 		public void deleteTM(IWebDriver driver)
@@ -92,13 +126,34 @@ namespace sndNunitest.Pages
 			Thread.Sleep(2000);
 			//delete
 			driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]/span")).Click();
-			IWebElement deletebutton = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[5]/a[2]"));
-			Thread.Sleep(2000);
-			//*[@id="tmsGrid"]/div[3]/table/tbody/tr/td[5]/a[2]
-			deletebutton.Click();
-			driver.SwitchTo().Alert().Accept();
-			Console.WriteLine("data deleted sucessfully ..... ");
+			IWebElement chckcode1 = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
+			if (chckcode1.Text == "sep2021")
+			{
+				IWebElement deletebutton = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[5]/a[2]"));
+				Thread.Sleep(2000);
+				//*[@id="tmsGrid"]/div[3]/table/tbody/tr/td[5]/a[2]
+				deletebutton.Click();
+				driver.SwitchTo().Alert().Accept();
+				Console.WriteLine("data deleted sucessfully ..... ");
 
+				Thread.Sleep(2000);
+				IWebElement lastpagebutton = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]/span"));
+				lastpagebutton.Click();
+				Thread.Sleep(2000);
+
+				IWebElement chckcode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
+				IWebElement chckTypecode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[2]"));
+				IWebElement chckDesc = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[3]"));
+				IWebElement chckPrice = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[4]"));
+				Assert.That(chckcode.Text != "sep2021", "Actual code and expected code same data not deleted test failed");
+				//Assert.That(chckTypecode.Text != "M", "Actual code and expected code do not match");
+				Assert.That(chckDesc.Text != "1newsept2023", "Actual Desc and expected code do not match");
+				Assert.That(chckPrice.Text != "$54.00", "Actual Price and expected code do not match");
+			}
+			else
+            {
+				Assert.Fail("cannot find edited data, delete test case failed");
+            }
 
 		}
 	}
