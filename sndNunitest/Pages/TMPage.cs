@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
+using NUnit.Framework;
 using OpenQA.Selenium;
 
 namespace sndNunitest.Pages
@@ -41,7 +42,9 @@ namespace sndNunitest.Pages
 			IWebElement lastpagebutton = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]/span"));
 			lastpagebutton.Click();
 			IWebElement chckelement = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
+			Assert.That(chckelement.Text == "sep2021", "Actual code expexted code diff test failed");
 			Console.WriteLine(chckelement.Text);
+
 			if (chckelement.Text == "sep2021")
 			{
 				Console.WriteLine("data saved sucessfully test passed");
@@ -49,7 +52,7 @@ namespace sndNunitest.Pages
 
 			}
 			else { Console.WriteLine("data saved not sucessfully test failed"); }
-
+			
 
 		}
 		public void editTM(IWebDriver driver)
