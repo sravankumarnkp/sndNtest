@@ -10,18 +10,19 @@ Scenario: Create Time and Material with valid details
 	When I create time and material record.
 	Then Thre record should be created sucessfully
 
-@tmtest
+@tmtest @regression
 Scenario: Edit Time And Material With Valid Details
 Given I Logged into turnup portal sucessfully
 And I nagivate to Time and material page
 When I Edit the time and material record
 Then There record should be edited sucessfully
 
-@tmtest
+@tmtest @regression
 Scenario: delete Time and Material record with valid details
-Given I Logged into turnuo portal sucessfully
+Given I Logged into turnup portal sucessfully
 And I nagivate to Time and material page
 When I delete the time and marerial record
 Then there record should be deleted sucessfully.
+
 
 

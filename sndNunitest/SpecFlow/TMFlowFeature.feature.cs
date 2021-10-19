@@ -124,10 +124,12 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Edit Time And Material With Valid Details")]
         [NUnit.Framework.CategoryAttribute("tmtest")]
+        [NUnit.Framework.CategoryAttribute("regression")]
         public virtual void EditTimeAndMaterialWithValidDetails()
         {
             string[] tagsOfScenario = new string[] {
-                    "tmtest"};
+                    "tmtest",
+                    "regression"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit Time And Material With Valid Details", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 14
@@ -169,10 +171,12 @@ testRunner.Then("There record should be edited sucessfully", ((string)(null)), (
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("delete Time and Material record with valid details")]
         [NUnit.Framework.CategoryAttribute("tmtest")]
+        [NUnit.Framework.CategoryAttribute("regression")]
         public virtual void DeleteTimeAndMaterialRecordWithValidDetails()
         {
             string[] tagsOfScenario = new string[] {
-                    "tmtest"};
+                    "tmtest",
+                    "regression"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("delete Time and Material record with valid details", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 21
@@ -196,7 +200,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 22
-testRunner.Given("I Logged into turnuo portal sucessfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given("I Logged into turnup portal sucessfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 23
 testRunner.And("I nagivate to Time and material page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

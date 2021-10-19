@@ -41,18 +41,17 @@ namespace sndNunitest.Pages
 			Thread.Sleep(5000);
 			IWebElement lastpagebutton = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]/span"));
 			lastpagebutton.Click();
-			IWebElement chckelement = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
-			Assert.That(chckelement.Text == "sep2021", "Actual code expexted code diff test failed");
-			Console.WriteLine(chckelement.Text);
+			//Assert.That(chckelement.Text == "sep2021", "Actual code expexted code diff test failed");
+			//Console.WriteLine(chckelement.Text);
 			
-			//IWebElement chckcode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
-			IWebElement chckTypecode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[2]"));
-			IWebElement chckDesc = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[3]"));
-			IWebElement chckPrice = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[4]"));
+			/*IWebElement chckcode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
+			//IWebElement chckTypecode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[2]"));
+			//IWebElement chckDesc = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[3]"));
+			//IWebElement chckPrice = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[4]"));
 			Assert.That(chckelement.Text == "sep2021", "Actual code and expected code do not match");
 			Assert.That(chckTypecode.Text == "T", "Actual code and expected code do not match");
 			Assert.That(chckDesc.Text == "sept2021", "Actual Desc and expected code do not match");
-			Assert.That(chckPrice.Text == "$25.00", "Actual Price and expected code do not match");
+			Assert.That(chckPrice.Text == "$25.00", "Actual Price and expected code do not match"); 
 			
 			
 			if (chckelement.Text == "sep2021")
@@ -61,8 +60,32 @@ namespace sndNunitest.Pages
 
 
 			}
-			else { Console.WriteLine("data saved not sucessfully test failed"); }
+			else { Console.WriteLine("data saved not sucessfully test failed"); }*/
 			
+
+		}
+		public string getCode(IWebDriver driver)
+        {
+			IWebElement chckelement = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
+			return chckelement.Text;
+
+		}
+		public string getTypecode(IWebDriver driver)
+		{
+			IWebElement chckTypecode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[2]"));
+			return chckTypecode.Text;
+
+		}
+		public string getDesc(IWebDriver driver)
+		{
+			IWebElement chckDesc = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[3]"));
+			return chckDesc.Text;
+
+		}
+		public string getPrice(IWebDriver driver)
+		{
+			IWebElement chckPrice = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[4]"));
+			return chckPrice.Text;
 
 		}
 		public void editTM(IWebDriver driver)
@@ -115,6 +138,7 @@ namespace sndNunitest.Pages
 
 
 		}
+
 		public void deleteTM(IWebDriver driver)
         {
 			//delete the data what is saved 

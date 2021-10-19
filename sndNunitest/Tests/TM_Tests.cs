@@ -13,7 +13,7 @@ namespace sndNunitest
 
         
        
-        [Test, Order(1)]
+        [Test, Order(1001), Description("Check if user is able to create Material record")]
         public void createTMTest()
         {
             //tm page
@@ -21,7 +21,7 @@ namespace sndNunitest
             tmobj.createTM(driver);
 
         }
-        [Test, Order(2)]
+        [Test, Order(1002), Description("Check if user is able to edit  Material record")]
         public void editTMTest()
         {
             //tm page
@@ -31,7 +31,7 @@ namespace sndNunitest
 
         }
 
-        [Test, Order(3)]
+        [Test, Order(1003), Description("Check if user is able to delete Material record")]
         public void deleteTMTest()
         {
             //tm page
